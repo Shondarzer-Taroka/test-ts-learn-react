@@ -8,6 +8,7 @@ import ClickModal from "@/components/modals/ClickModal";
 import NavsWithMouseHover from "@/components/navs/NavsWithMouseHover";
 import HoverPr from "@/components/navs/HoverPr";
 import HoverPr2 from "@/components/navs/HoverPr2";
+import HoverPr3 from "@/components/navs/HoverPr3";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path:'/test/HoverPr2',
         element: <HoverPr2/>
+      },
+      {
+        path:'/test/HoverPr3',
+        element: <HoverPr3/>
       },
     ]
   }
