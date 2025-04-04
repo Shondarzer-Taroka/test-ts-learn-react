@@ -6,6 +6,7 @@ import UserForm2 from "@/components/forms/UserForm2";
 import UserFormAvatar from "@/components/forms/UserFormAvatar";
 import ClickModal from "@/components/modals/ClickModal";
 import NavsWithMouseHover from "@/components/navs/NavsWithMouseHover";
+import HoverPr from "@/components/navs/HoverPr";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path:'/test/NavsWithMouseHover',
         element: <NavsWithMouseHover/>
+      },
+      {
+        path:'/test/HoverPr',
+        element: <HoverPr/>
       },
     ]
   }
