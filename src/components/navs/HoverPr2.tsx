@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const HoverPr2: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false)
-    const drop = useRef<HTMLDivElement | null>(null)
+    const drop = useRef<HTMLLIElement | null>(null)
 
     useEffect(() => {
         console.log(drop.current);
@@ -24,15 +24,15 @@ const HoverPr2: React.FC = () => {
 
     return (
         <div>
-            <div>
-                <li className='relative list-none bg-black text-white'
+            <div className='bg-black flex gap-6'>
+                <li className='relative list-none  text-white'
 
                     ref={drop}
                     onMouseEnter={() => setIsOpen(true)}
                 >
-                    <Link to={'/pages'}>Pages</Link>
+                    <p>Pages</p>
 
-                    {isOpen && <div className='bg-gray-200 p-3'>
+                    {isOpen && <div className='bg-gray-200 p-3 absolute top-6'>
                         <p>Service 1</p>
                         <p>Service 1</p>
                         <p>Service 1</p>
