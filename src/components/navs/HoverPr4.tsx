@@ -57,3 +57,16 @@
 // export default HoverPr4;
 
 
+import React from 'react';
+
+
+
+const HoverPr4:React.FC = () => {
+    return (
+        <section>
+            
+        </section>
+    );
+};
+
+export default HoverPr4;
