@@ -15,13 +15,13 @@
 //     useEffect(() => {
 //         const handleClickOutside = (event: MouseEvent) => {
 //             console.log('values',Object.values(dropdownRefs.current));
-            
+
 //             const clickedInsideAny = Object.values(dropdownRefs.current).some(ref =>
 
 //                 ref?.contains(event.target as Node)
 //             );
 //             console.log(clickedInsideAny);
-            
+
 //             if (!clickedInsideAny) {
 //                 setOpenDropdown(null);
 //             }
@@ -58,13 +58,48 @@
 
 
 import React from 'react';
+import { ServicesItems } from './ServicesItems';
 
 
-
-const HoverPr4:React.FC = () => {
+const menuItems = [
+    {
+        key: "pages",
+        label: "Pages",
+        dropdown: <ServicesItems />
+    },
+    {
+        key: "contact",
+        label: "Contact",
+        dropdown: <ServicesItems />
+    },
+    {
+        key: "about",
+        label: "About",
+        dropdown: <ServicesItems />
+    },
+]
+const HoverPr4: React.FC = () => {
     return (
         <section>
-            
+            <div className='bg-black text-white flex gap-4'>
+                {
+                    menuItems.map(({ key, label, dropdown }) => {
+                        return <>
+                            <li
+                                className='list-none p-4 relative'
+                            > {label}
+
+                                <div className='absolute top-[59px] bg-gray-600 w-[60px]'>
+                                    <p>hello</p>
+                                    <p>hello</p>
+                                    <p>hello</p>
+                                </div>
+
+                            </li>
+                        </>
+                    })
+                }
+            </div>
         </section>
     );
 };
