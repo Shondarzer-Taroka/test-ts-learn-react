@@ -57,7 +57,7 @@
 // export default HoverPr4;
 
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { ServicesItems } from './ServicesItems';
 
 
@@ -79,6 +79,9 @@ const menuItems = [
     },
 ]
 const HoverPr4: React.FC = () => {
+    const [isDropMenu, setIsDropMenu] = useState<string | null>(null)
+    const dropRefs = useRef<Record<string,HTMLLIElement | null>>({})
+    
     return (
         <section>
             <div className='bg-black text-white flex gap-4'>
@@ -87,6 +90,9 @@ const HoverPr4: React.FC = () => {
                         return <>
                             <li
                                 className='list-none p-4 relative'
+                                ref={el=>{
+                                    dropRefs.current[key]=el
+                                }}
                             > {label}
 
                                 <div className='absolute top-[59px] bg-gray-600 w-[60px]'>
