@@ -57,7 +57,7 @@
 // export default HoverPr4;
 
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ServicesItems } from './ServicesItems';
 
 
@@ -80,8 +80,31 @@ const menuItems = [
 ]
 const HoverPr4: React.FC = () => {
     const [isDropMenu, setIsDropMenu] = useState<string | null>(null)
-    const dropRefs = useRef<Record<string,HTMLLIElement | null>>({})
-    
+    const dropRefs = useRef<Record<string, HTMLLIElement | null>>({})
+    console.log(dropRefs);
+    console.log(isDropMenu);
+
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            console.log(event.target);
+
+            const checkedIn = Object.values(dropRefs.current).some(ref => {
+                return ref?.contains(event.target as Node)
+            })
+
+            if (!checkedIn) {
+                setIsDropMenu(null)
+            }
+            console.log(checkedIn, '...');
+
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [])
+
     return (
         <section>
             <div className='bg-black text-white flex gap-4'>
@@ -89,17 +112,19 @@ const HoverPr4: React.FC = () => {
                     menuItems.map(({ key, label, dropdown }) => {
                         return <>
                             <li
+                                key={key}
                                 className='list-none p-4 relative'
-                                ref={el=>{
-                                    dropRefs.current[key]=el
+                                ref={el => {
+                                    dropRefs.current[key] = el
                                 }}
+                                onMouseEnter={() => setIsDropMenu(key)}
                             > {label}
 
-                                <div className='absolute top-[59px] bg-gray-600 w-[60px]'>
+                                {isDropMenu === key && <div className='absolute top-[59px] bg-gray-600 w-[60px]'>
                                     <p>hello</p>
                                     <p>hello</p>
                                     <p>hello</p>
-                                </div>
+                                </div>}
 
                             </li>
                         </>
