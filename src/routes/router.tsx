@@ -10,6 +10,7 @@ import HoverPr from "@/components/navs/HoverPr";
 import HoverPr2 from "@/components/navs/HoverPr2";
 import HoverPr3 from "@/components/navs/HoverPr3";
 import HoverPr4 from "@/components/navs/HoverPr4";
+import Quiz1 from "@/components/quizs/Quiz1";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path:'/test/HoverPr4',
         element: <HoverPr4/>
+      },
+      {
+        path:'/test/quiz1',
+        element: <Quiz1/>
       },
     ]
   }
