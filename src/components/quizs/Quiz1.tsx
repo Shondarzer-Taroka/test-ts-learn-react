@@ -66,25 +66,23 @@ const quizData: QuizQuestion[] = [
 
 const Quiz1: React.FC = () => {
   return (
-    <div className="p-6 max-w-3xl mx-auto">
+    <div className="p-6 max-w-2xl mx-auto space-y-8">
       {quizData.map((question) => (
-        <div key={question.id} className="mb-6 flex items-start gap-x-4">
-          {/* Title on the left */}
-          <div className="w-1/3 text-right pr-4 font-medium text-gray-800">
-            {question.title}
-          </div>
-
-          {/* Options on the right */}
-          <ul className="w-2/3 space-y-2">
+        <div
+          key={question.id}
+          className="p-4 border rounded-lg shadow-sm bg-white space-y-4 text-left"
+        >
+          <h2 className="text-lg font-semibold text-gray-800">{question.title}</h2>
+          <ul className="space-y-2">
             {question.options.map((option) => (
               <li key={option.id}>
-                <label className="inline-flex items-center">
+                <label className="inline-flex items-center space-x-2">
                   <input
                     type="radio"
                     name={`question-${question.id}`}
-                    className="mr-2"
+                    className="text-blue-600 focus:ring-blue-500"
                   />
-                  {option.text}
+                  <span>{option.text}</span>
                 </label>
               </li>
             ))}
