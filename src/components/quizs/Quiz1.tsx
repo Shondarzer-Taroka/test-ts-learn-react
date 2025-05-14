@@ -460,6 +460,7 @@ const Quiz1: React.FC = () => {
       >
         Submit
       </button>
+      
     </div>
   );
 };
